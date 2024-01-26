@@ -34,7 +34,7 @@ public interface UserService {
   Optional<UserModel> getByEmail(@RequestParam String email);
 
   @GetMapping("/search")
-  Stream<UserDTO> search(@RequestParam String userName);
+  List<UserModel> search(@RequestParam String userName);
 
   @GetMapping("/getByUsername")
   Optional<UserDTO> getByUsername(@RequestParam String userName);

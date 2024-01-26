@@ -69,7 +69,7 @@ public class ChatService {
   }
 
   public List<UserDTO> search(String userName) {
-    return this.userService.search(userName).filter(userDTO -> !userDTO.getUserName().equals(this.userContext.getUsername()) && !this.exists(userDTO.getUserName())).toList();
+    return this.userService.search(userName).stream().map(UserDTO::new).filter(userDTO -> !userDTO.getUserName().equals(this.userContext.getUsername()) && !this.exists(userDTO.getUserName())).toList();
   }
 
   public boolean exists(String userName) {
